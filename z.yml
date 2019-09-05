@@ -1,0 +1,13 @@
+---
+description: library for ON Semiconductor NCV7240 
+fullname: lib.onsemi.ncv7240
+info:
+    chip_manufacturer: onsemi
+    chip_name: '-'
+    name: Zerynth ON Semiconductor NCV7240 Library
+    type: Utility
+keywords:
+- ON Semiconductor
+- onsemi 
+title: ON Semiconductor NCV7240 Library
+...

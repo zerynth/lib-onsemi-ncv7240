@@ -1,1 +1,0 @@
-# lib-onsemi-ncv7240
