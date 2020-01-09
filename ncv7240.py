@@ -60,8 +60,11 @@ class NCV7240(spi.Spi):
         
         :note: SPI mode is fixed by the slave chip protocol (CPOL=0,CPHA=1)
         """
-        spi.Spi.__init__(self, cs, spidrv, clock=clk, mode=spi.SPI_MODE_LOW_SECOND)
         self.reg = bytearray(2)
+        self.cs = cs
+        self.spidrv = spidrv
+        self.clock = clk
+        spi.Spi.__init__(self, self.cs, self.spidrv, clock=self.clock, mode=spi.SPI_MODE_LOW_SECOND)
 
     def _write(self):
         # print("reg: %x%x"%(self.reg[0],self.reg[1]))
@@ -73,6 +76,7 @@ class NCV7240(spi.Spi):
         except Exception as e:
             ex = e
         self.unselect()
+        self.done()
         self.unlock()
         if ex is not None:
             raise ex
@@ -86,6 +90,7 @@ class NCV7240(spi.Spi):
         except Exception as e:
             ex = e
         self.unselect()
+        self.done()
         self.unlock()
         if ex is not None:
             raise ex
